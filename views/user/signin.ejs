@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign in - Pomozone</title>
+  <link rel="stylesheet" href="/css/register.css" /> <!-- Corrected path -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="overlay-container">
+    <div class="overlay-background"></div>
+    <div class="overlay-form"></div>
+
+    <div class="form-container">
+      <form action="/signin" method="POST" class="form">
+        <h1 class="title">Sign in <span class="highlight">to Pomozone</span></h1>
+
+        <input type="text" name="username" placeholder="Enter your username" class="input-field" required />
+        <input type="password" name="password" placeholder="Password" class="input-field" required />
+
+        <button type="submit" class="submit-button">Sign in</button>
+
+        <p class="login-link">New User? <a href="/signup" class="login-link-text">Create Account</a></p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

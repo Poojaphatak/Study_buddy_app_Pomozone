@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+</head>
+<body>
+    <h1>hello</h1>
+    <div id="quote-box" class="quote-container">
+  
+   </div>
+
+     <button id="quote_btn">New quote</button>
+    <script>
+       async function fetchQuote() {
+       const response = await fetch("https://zenquotes.io/api/random");
+       const data = await response.json();
+       document.getElementById("quote-box").innerText = data[0].q + " -" + data[0].a;
+}
+
+      document.querySelector("#quote_btn").addEventListener('click',fetchQuote());
+
+
+
+    </script>
+   
+</body>
+</html>
