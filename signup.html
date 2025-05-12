@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign up - Pomozone</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Linking the external CSS file -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Main content with background image -->
+  <div class="overlay-container">
+    <div class="overlay-background"></div> <!-- Background overlay -->
+    <div class="overlay-form"></div> <!-- Form overlay -->
+
+    <div class="form-container">
+      <form action="/Sign up" method="POST" class="form">
+        <h1 class="title">Join <span class="highlight">Pomozone</span> circle</h1>
+
+        <!-- Username -->
+        <input 
+          type="text" 
+          name="username" 
+          placeholder="Enter your username" 
+          required 
+          class="input-field"
+        />
+
+        <!-- Password -->
+        <input 
+          type="password" 
+          name="password" 
+          placeholder="Create a strong password" 
+          required 
+          class="input-field"
+        />
+
+        <!-- Submit Button -->
+        <button 
+          type="submit" 
+          class="submit-button"
+        >
+          Sign up
+        </button>
+
+        <!-- Login Link -->
+        <p class="login-link">
+          Already have an account? 
+          <a href="/signin.html" class="login-link-text">Sign in here</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- JS Confirm -->
+  <script>
+    document.querySelector('.submit-button').addEventListener('click', function(e) {
+      const confirmation = confirm('Are you sure about your password?');
+      if (!confirmation) {
+        e.preventDefault(); // Stop submission if not confirmed
+      }
+    });
+  </script>
+</body>
+</html>

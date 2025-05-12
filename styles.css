@@ -1,0 +1,124 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://i.pinimg.com/736x/68/30/5c/68305cf54f3a4e69bb24654692552e7e.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  /* Overlay styles */
+  .overlay-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .overlay-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Background overlay */
+    z-index: 1;
+  }
+  
+  .overlay-form {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Form overlay */
+    z-index: 2;
+  }
+  
+  .form-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
+    z-index: 3;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  
+  /* Form text and input styles */
+  .title {
+    font-size: 32px;
+    font-weight: 600;
+    color: white; /* White color for "Join" and "circle" */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .highlight {
+    color: #FF7F50; /* Orange gradient color for Pomozone */
+    background-image: linear-gradient(90deg, #FF7F50, #FFA500);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+    border: 1px solid #ccc;
+  }
+  
+  .input-field:focus {
+    outline: none;
+    border-color: #ffd3a1;
+    box-shadow: 0 0 0 2px rgba(255, 172, 161, 0.6);
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #FF7F50, #FFA500); /* Orange gradient */
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+  }
+  
+  .submit-button:hover {
+    opacity: 0.9;
+  }
+  
+  .login-link {
+    text-align: center;
+    color: white;
+    font-size: 14px;
+  }
+  
+  .login-link-text {
+    color: #FFA500;
+    font-weight: 500;
+    text-decoration: underline;
+  }
+  
+  .login-link-text:hover {
+    color: #FF7F50;
+  }
+  

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomozone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tailwind config override */
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
+      h1 {
+        font-family: 'Playfair Display', serif;
+      }
+    </style>
+  </head>
+  <body class="m-0 p-0">
+    <!-- Background Image with Overlay -->
+    <div
+      class="relative min-h-screen bg-cover bg-center"
+      style="background-image: url('https://i.pinimg.com/736x/68/30/5c/68305cf54f3a4e69bb24654692552e7e.jpg');"
+    >
+     <!-- Black translucent overlay (10% lighter) -->
+<div class="absolute inset-0 bg-black/50 z-0"></div>
+
+
+      <!-- Main content section -->
+      <main class="relative z-10 flex flex-col items-center justify-center min-h-screen text-white text-center px-4">
+        <!-- Welcome Text -->
+        <h2 class="text-base sm:text-lg tracking-widest uppercase font-medium mb-4">
+          Welcome to
+        </h2>
+
+        <!-- Main Title -->
+        <h1 class="text-[3.25rem] sm:text-[4.25rem] md:text-[5.5rem] font-semibold mb-3 leading-tight">
+          Pomozone
+        </h1>
+
+        <!-- Tagline -->
+        <p class="text-lg sm:text-xl font-light mb-6">
+          Pom it. Zone it. Own it.
+        </p>
+
+        <!-- Buttons -->
+        <div class="flex gap-4">
+          <a
+            href="signin.html"
+            class="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg transition"
+            >Sign In</a
+          >
+          <a
+            href="signup.html"
+            class="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg transition"
+            >Sign Up</a
+          >
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
