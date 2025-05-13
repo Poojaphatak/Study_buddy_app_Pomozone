@@ -38,7 +38,8 @@ exports.postLogin = async (req,res,next)=>{
         
         else{
             req.session.UserId = user._id;
-            res.redirect('/dashboard');
+            
+           res.redirect('/dashboard');
         }
     });
 

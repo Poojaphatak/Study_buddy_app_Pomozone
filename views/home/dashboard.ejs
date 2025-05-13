@@ -4,25 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
-    <h1>hello</h1>
-    <div id="quote-box" class="quote-container">
-  
+    <h1>hello <%=user.username%></h1>
+    <div class="quote-container">
+    <p><i class="fa-solid fa-fire" style="color: #ea5c39;"></i></p> 
+     <p id="quote-box">Don’t watch the clock; do what it does. Keep going.” — Sam Levenson   </p>
    </div>
 
      <button id="quote_btn">New quote</button>
     <script>
-       async function fetchQuote() {
-       const response = await fetch("https://zenquotes.io/api/random");
-       const data = await response.json();
-       document.getElementById("quote-box").innerText = data[0].q + " -" + data[0].a;
+      //  async function fetchQuote() {
+      //   const response = await fetch("https://api.quotable.io/random");
+      //   const data = await response.json();
+      //  const randomIndex = Math.floor(Math.random() * data.length);
+      //  console.log(data.length);
+      //  console.log(randomIndex);
+      //  const quote = data[randomIndex];
+
+      //  document.getElementById("quote-box").innerText = quote.text + " -" + (quote.author || "unknown");
+     const quotes = [
+"Don’t watch the clock; do what it does. Keep going.” — Sam Levenson",
+
+"“Success doesn’t come from what you do occasionally, it comes from what you do consistently.” — Marie Forleo",
+
+"Push yourself, because no one else is going to do it for you.",
+
+"Study while others are sleeping. Work while others are loafing. Prepare while others are playing. Dream while others are wishing.” — William A. Ward",
+
+"“The secret of getting ahead is getting started.” — Mark Twain",
+
+"“You don’t have to be great to start, but you have to start to be great.” — Zig Ziglar",
+
+"“Hard work beats talent when talent doesn’t work hard.” — Tim Notke",
+
+"“Discipline is doing what needs to be done, even if you don’t want to do it.”",
+
+"“Focus on progress, not perfection.”",
+
+"“One day, all your hard work will pay off.”",
+
+"“Wake up with determination. Go to bed with satisfaction.”",
+
+"“Small steps every day lead to big results.”",
+
+"“Success is the sum of small efforts repeated day in and day out.” — Robert Collier",
+
+"“Motivation gets you going, but discipline keeps you growing.” — John C. Maxwell",
+
+"“Winners are not people who never fail, but people who never quit.”",
+];
+
+function fetchQuote() {
+  const random = Math.floor(Math.random() * quotes.length);
+  document.getElementById("quote-box").innerText = quotes[random];
 }
-
-      document.querySelector("#quote_btn").addEventListener('click',fetchQuote());
-
-
-
+document.querySelector('#quote_btn').addEventListener('click',fetchQuote);
     </script>
    
 </body>
