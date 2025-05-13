@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Task</title>
+    <link rel="stylesheet" href="/css/toDoMain.css">
+    <link rel="stylesheet" href="/css/toDoNavbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">My To-Do App</a>
+            <ul class="nav-links">
+                <li><a href="/">Create User</a></li>
+                <li><a href="/tasks">Add Task</a></li>
+                <li><a href="/tasklist/<%=userId%>">Show Task</a></li>
+            </ul>
+        </div>
+    </nav>
+  
+ 
+    <h1>Note your tasks for the day!!!</h1>
+    
+    <form action=<%if(!editing){%>"/tasks"<%}else{%>"/edit-task"<%}%>method="POST">
+        <%if(editing){%>
+                  <input type="text" name="title" placeholder="<%=task.title%>" required />
+                  <%}else{%>
+                <input type="text" name="title" placeholder="Enter your task" required />
+                <%}%>
+
+          
+                <input type="hidden" name="userId" value="<%= userId %>">
+               <% if(editing){%>
+                <input type="hidden" name="taskId" value="<%= taskId%>">
+                <%}%>
+                <%if(editing){%>
+                    <button type="submit">Edit</button>
+                    <%}else{%>
+                        <button type="submit">Enter</button>
+                        <%}%>
+    </form>
+</body>
+
+</html>

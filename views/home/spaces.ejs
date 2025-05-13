@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomozone</title>
+    <link rel="stylesheet" href="/css/spaces.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Pomozone</div>
+        <div class="nav-links">
+            <a href="feedback.ejs">Feedback.</a>
+            <a href="help.ejs">help</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Choose your space :)</h1>
+        <div class="spaces">
+            <div class="space">
+                <a href="/dashboard">
+                    <img src="https://i.pinimg.com/736x/34/12/b6/3412b6fad7e28be50e80e8dd9e6c7d7b.jpg" alt="Library" onclick="selectTheme('bg-theme1')">
+                </a>
+                <h2>Library</h2>
+                <p>Among quiet shelves and rustling pages, the library becomes a sanctuary where focus meets discovery</p>
+            </div>
+            <div class="space">
+                <a href="cafe.ejs">
+                    <img src="https://i.pinimg.com/736x/5e/8e/08/5e8e08424facc54395dac76b4a1c01ab.jpg" alt="Cafe" onclick="selectTheme('bg-theme2')">
+                </a>
+                <h2>Cafe</h2>
+                <p>Amid the aroma of coffee and quiet chatter, the cafe becomes a cozy haven for thoughts to brew and ideas to flow.</p>
+            </div>
+            <div class="space">
+                <a href="sea.ejs">
+                    <img src="https://i.pinimg.com/736x/27/08/3b/27083bf968836ffd6080e2e6f557dc51.jpg" alt="By the sea" onclick="selectTheme('bg-theme3')">
+                </a>
+                <h2>By the sea</h2>
+                <p>With the rhythm of the waves and the scent of salt in the air, studying by the sea brings clarity to the mind and calm to the soul</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="offers">
+        <div class="offer">
+            <a href="city.ejs">
+                <img src="https://i.pinimg.com/736x/1a/40/fa/1a40fa546a678250f445c6c4b690c731.jpg" alt="City view" onclick="selectTheme('bg-theme4')">
+            </a>
+            <h3>City view</h3>
+            <p>Under the city skyline, where lights never sleep, inspiration rises with every towering view and ambitious thought.</p>
+        </div>
+        <div class="offer">
+            <a href="snow.ejs">
+                <img src="https://i.pinimg.com/736x/22/40/5b/22405bfe548abe66e61637048cd126f5.jpg" alt="By the snowfall" onclick="selectTheme('bg-theme5')">
+            </a>
+            <h3>By the snowfall</h3>
+            <p>Wrapped in winter’s hush, the snowfall creates a peaceful world where every flake invites focus and reflection.</p>
+        </div>
+        <div class="offer">
+            <a href="rain.ejs">
+                <img src="https://i.pinimg.com/736x/e5/f2/3c/e5f23c57109cb09a10d902f9b2d6d2fa.jpg" alt="Rain" onclick="selectTheme('bg-theme6')">
+            </a>
+            <h3>Rain</h3>
+            <p>Beneath the gentle patter of rain, the world slows down—each drop a rhythm that soothes the mind and sharpens concentration.</p>
+        </div>
+    </section>
+     <script>
+  function selectTheme(themeClass) {
+    localStorage.setItem('selectedTheme', themeClass); // Save theme
+    window.location.href = 'main.html'; // Redirect to actual content page
+  }
+</script>
+</body>
+</html>

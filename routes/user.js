@@ -11,5 +11,7 @@ router.get('/dashboard',isAuthenticated,userController.getdashboard);
 
 router.get('/signup',userController.getRegister);
 
+router.get('/spaces',userController.getSpaces);
+
 // router.get('/logout',userController.getLogout);
 module.exports=router;

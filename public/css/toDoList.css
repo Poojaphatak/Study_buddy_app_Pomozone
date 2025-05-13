@@ -1,0 +1,79 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.task-table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.task-table th, .task-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.task-table th {
+    background-color: #4a90e2;
+    color: white;
+}
+
+.task-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.edit-btn {
+    background-color: #5cb85c;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+}
+
+.add-task-btn {
+    display: block;
+    margin: 30px auto;
+    background-color: #4a90e2;
+    color: white;
+    text-align: center;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+ Style for Checkbox 
+input[type="checkbox"] {
+    transform: scale(1.5);
+    cursor: pointer;
+} 
