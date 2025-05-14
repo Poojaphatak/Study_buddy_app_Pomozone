@@ -1,67 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomozone</title>
+  <link rel="stylesheet" href="css/dashboardPage.css">
+  <link rel="stylesheet" href="css/pomodoro.css">
 
 </head>
 <body>
-    <h1>hello <%=user.username%></h1>
-    <div class="quote-container">
-    <p><i class="fa-solid fa-fire" style="color: #ea5c39;"></i></p> 
-     <p id="quote-box">Don’t watch the clock; do what it does. Keep going.” — Sam Levenson   </p>
-   </div>
 
-     <button id="quote_btn">New quote</button>
-     <br>
-     <a href="/tasklist/<%=user._id%>">TODO</a>
-    <script>
-     const theme = localStorage.getItem('selectedTheme');
-    if (theme) {
-      document.getElementById('main-body').classList.add(theme);
-    }
-     const quotes = [
-"Don’t watch the clock; do what it does. Keep going.” — Sam Levenson",
+    
+  <!-- YouTube Video Background -->
+  <div class="video-background">
+    <iframe 
+      src="https://www.youtube.com/embed/0L38Z9hIi5s?autoplay=1&mute=1&controls=0&loop=1&playlist=0L38Z9hIi5s&modestbranding=1&showinfo=0&rel=0" 
+      frameborder="0" 
+      allow="autoplay; fullscreen" 
+      allowfullscreen>
+    </iframe>
+  </div>
+  
 
-"“Success doesn’t come from what you do occasionally, it comes from what you do consistently.” — Marie Forleo",
+  
 
-"Push yourself, because no one else is going to do it for you.",
+  <!-- Overlay -->
+  <div class="overlay"></div>
 
-"Study while others are sleeping. Work while others are loafing. Prepare while others are playing. Dream while others are wishing.” — William A. Ward",
+  <!-- Content -->
+  <div class="content">
+    <header>
+      <h1 class="logo">Pomozone</h1>
+      <nav class="nav-top">
+        <a href="/spaces">Home</a>
+        <a href="#">Feedback</a>
+        <a href="#">Help</a>
+      </nav>
+    </header>
+<!-- ===Motivation=== -->
+  <div class="motivation_box hide">
+    <p id="quote-box">"Don’t watch the clock; do what it does. Keep going.” — Sam Levenson",
+    </p>
+    <button id="quote_btn">New Quote</button>
+  </div>
 
-"“The secret of getting ahead is getting started.” — Mark Twain",
+  <!-- ===Timer=== -->
+<section class="timer-app hide">
+ <div class="timer-box ">
+    <div class="header">
+      <span>Personal</span>
+      <div class="dots">
+        <span>.</span><span>.</span><span>.</span><span>.</span>
+      </div>
+    </div>
+    <div class="timer-display">
+      <h1 id="time">30:00</h1>
+      <button id="startStop">Start</button>
+      <button id="reset" title="Reset">&#8635;</button>
+    </div>
+    <div class="modes">
+      <button class="mode active" data-mode="pomodoro">Pomodoro</button>
+      <button class="mode" data-mode="short">Short Break</button>
+      <button class="mode" data-mode="long">Long Break</button>
+    </div>
+  </div>
+</section>
 
-"“You don’t have to be great to start, but you have to start to be great.” — Zig Ziglar",
+    <footer>
+      <nav class="nav-bottom">
+        <a href="#" id="timer_tag">Pomodoro</a>
+        <a href="/tasklist/<%=user._id%>">To-Do list</a>
+        <a href="#">Progress-bar</a>
+        <a href="#" id="motivation_tag">Motivation!!</a>
+        <a href="#">Music</a>
+      </nav>
+    </footer>
+  </div>
+  <script src="/frontend/dashboard.js"></script>
+   <script src="/frontend/pomodoro.js"></script>
 
-"“Hard work beats talent when talent doesn’t work hard.” — Tim Notke",
-
-"“Discipline is doing what needs to be done, even if you don’t want to do it.”",
-
-"“Focus on progress, not perfection.”",
-
-"“One day, all your hard work will pay off.”",
-
-"“Wake up with determination. Go to bed with satisfaction.”",
-
-"“Small steps every day lead to big results.”",
-
-"“Success is the sum of small efforts repeated day in and day out.” — Robert Collier",
-
-"“Motivation gets you going, but discipline keeps you growing.” — John C. Maxwell",
-
-"“Winners are not people who never fail, but people who never quit.”",
-];
-
-function fetchQuote() {
-  const random = Math.floor(Math.random() * quotes.length);
-  document.getElementById("quote-box").innerText = quotes[random];
-}
-document.querySelector('#quote_btn').addEventListener('click',fetchQuote);
-    </script>
-   
 </body>
 </html>

@@ -62,5 +62,10 @@ exports.getdashboard = async (req,res,next)=>{
 }
 
 exports.getSpaces = async (req,res,next)=>{
-    res.render('home/spaces');
-}
+    return User.findById(req.session.UserId).then(user=>{ 
+        res.render('home/spaces',{
+            user:user,
+
+    })
+})}
+   

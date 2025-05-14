@@ -2,7 +2,7 @@ const Task= require('../models/task');
 const User = require('../models/user');
 exports.getTaskList = async(req,res,next)=>{
     const userId = req.params.UserId || req.session.UserId;
-   const tasks = await Task.find({where:{userId:userId}})
+   const tasks = await Task.find({userId:userId})
   
        res.render('toDo/task-list',{
           tasks:tasks,
@@ -84,3 +84,29 @@ exports.postEditTask = async (req,res,next)=>{
         }
         res.redirect(`/tasklist/${updatedTask.userId}`);
  };
+
+ exports.getDelete = async (req,res,next)=>{
+    const id = req.params.taskId;
+    const userId = req.session.UserId;
+   await  Task.findByIdAndDelete(id);
+    res.redirect(`/tasklist/${userId}`);
+};
+
+exports.postCheckTask = async (req,res,next)=>{
+    const id = req.params.taskId;
+    const task = await Task.findOne({_id:id});
+    const userId = req.session.UserId;
+    let complete = task.completed;
+    if(!complete){
+        task.completed=true;
+    }
+    else{
+        task.completed=false;
+    }
+
+    await task.save();
+    res.redirect(`/tasklist/${userId}`);
+
+};
+
+

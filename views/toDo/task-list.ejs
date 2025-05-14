@@ -1,62 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Task List</title>
-    <link rel="stylesheet" href="/css/toDoList.css"> 
-    <link rel="stylesheet" href="/css/toDoNavbar.css">
-  
+  <meta charset="UTF-8" />
+  <title>Task List</title>
+  <link rel="stylesheet" href="/css/toDoList.css" />
+  <link rel="stylesheet" href="/css/toDoNavbar.css" />
 </head>
+
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-          <a href="/" class="nav-logo">My To-Do App</a>
-          <ul class="nav-links">
-            <li><a href="/">Create User</a></li>
-            <li><a href="/tasks">Add Task</a></li>
-            <li><a href="/tasklist/<%=userId%>">Show Task</a></li>
-          </ul>
-        </div>
-      </nav>
-      
-    <h1>Your Tasks</h1>
+  <div class="top-nav">
+    <div class="logo">Pomozone</div>
+    <div class="menu">
+      <a href="#">Home</a>
+      <a href="#">Feedback</a>
+      <a href="#">Help</a>
+    </div>
+  </div>
 
-    <table class="task-table">
-        <thead>
-            <tr>
-                <th>Task</th>
-                <th>Completed</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% tasks.forEach(task => { %>
-                <tr>
-                    <td><%= task.title %></td>
 
-                    <!-- Checkbox Column -->
-                    <td>
-                        <form action="/check-task/<%=task.id%>" method="POST">
-                            <input type="checkbox" onchange="this.form.submit()" <%= task.completed ? 'checked' : '' %> >
-                        </form>
-                    </td>
+  <h1>Your Tasks</h1>
 
-                    <!-- Actions Column -->
-                    <td class="actions">
-                        <!-- Edit button -->
-                        <a href="/edit-task/<%=task.id%>?edit=true" class="btn edit-btn">Edit</a>
+  <table class="task-table">
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Completed</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% tasks.forEach(task => { %>
+        <tr>
+          <td><%= task.title %></td>
 
-                        <!-- Delete button -->
-                        <a href="/delete-task/<%=task.id%>" class="btn delete-btn">Delete</a>
-                          <!--  <button type="submit" class="btn delete-btn">Delete</button>-->
-                     
-                    </td>
-                </tr>
-            <% }) %>
-        </tbody>
-    </table>
+          <!-- Checkbox Column -->
+          <td>
+            <form action="/check-task/<%=task.id%>" method="POST">
+              <input type="checkbox" onchange="this.form.submit()" <%= task.completed ? 'checked' : '' %> />
+            </form>
+          </td>
 
-    <br>
-    <a href="/tasks" class="btn add-task-btn">Add New Task</a>
+          <!-- Actions Column -->
+          <td class="actions">
+            <!-- Edit button -->
+            <a href="/edit-task/<%=task.id%>?edit=true" class="btn edit-btn">Edit</a>
+
+            <!-- Delete button -->
+            <a href="/delete-task/<%=task.id%>" class="btn delete-btn">Delete</a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+  <br />
+  <a href="/tasks" class="btn add-task-btn">Add New Task</a>
+  <div class="bottom-nav">
+        <a href="/dashboard">BACK TO YOUR SPACE</a>
+  </div>
 </body>
 </html>

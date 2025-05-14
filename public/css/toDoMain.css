@@ -1,67 +1,71 @@
 /* public/styles.css */
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #e0eafc, #cfdef3);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background: url('https://i.pinimg.com/736x/68/30/5c/68305cf54f3a4e69bb24654692552e7e.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  color: white;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: -1;
 }
 
 h1 {
-    color: #333;
-
-    font-size: 2.5rem;
-    text-align: center;
-}
-h2{
-    color: #333;
-    font-size: 2.5rem;
-    text-align: center;
-
+  text-align: center;
+  font-size: 2.5rem;
+  color: #fdf6f0;
+  margin-top: 100px;
 }
 
 form {
-    background: white;
-    padding: 30px 40px;
-    margin-top: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    width: 320px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 30px 40px;
+  margin: 30px auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  backdrop-filter: blur(8px);
 }
 
-input[type="text"],
-select {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    outline: none;
-    transition: border-color 0.3s;
+input[type="text"] {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #cf9a6c;
+  border-radius: 8px;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #3e1f0e;
 }
 
-input[type="text"]:focus,
-select:focus {
-    border-color: #5b9bd5;
+input[type="text"]:focus {
+  border-color: #9b5d29;
 }
 
 button {
-    background-color: #5b9bd5;
-    color: white;
-    font-size: 1rem;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  background-color: #9b5d29;
+  color: white;
+  font-size: 1rem;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #4a8ac2;
+  background-color: #723f1b;
 }

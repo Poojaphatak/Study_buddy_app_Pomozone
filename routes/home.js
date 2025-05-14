@@ -15,9 +15,9 @@ router.get('/edit-task/:taskId',taskController.getEditTask);
 
 router.post('/edit-task',taskController.postEditTask);
 
-// router.post('/check-task/:taskId',taskController.postCheckTask);
+router.post('/check-task/:taskId',taskController.postCheckTask);
 
-// router.get('/delete-task/:taskId',taskController.getDelete); 
+router.get('/delete-task/:taskId',taskController.getDelete); 
 
 
 module.exports=router;
