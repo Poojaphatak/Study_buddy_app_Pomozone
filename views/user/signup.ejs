@@ -35,6 +35,9 @@
           class="input-field"
         />
 
+        <% if (typeof error !== 'undefined') { %>
+           <div class="error"><%= error %></div>
+            <% } %>
         <!-- Submit Button -->
         <button 
           type="submit" 

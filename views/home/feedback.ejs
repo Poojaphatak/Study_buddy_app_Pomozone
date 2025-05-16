@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pomozone - Feedback</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/feedback.css">
+   <link rel="stylesheet" href="/css/toDoNavbar.css">
+</head>
+<body>
+<div class="overlay"></div>
+
+  <nav class="navbar">
+    <div class="logo">Pomozone</div>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="/spaces">Home</a>
+      <a href="#">Help</a>
+    </div>
+  </nav>
+
+  <div class="container">
+   
+    <%if(!isThank){%>
+     <h1 class="heading">Give your feedback</h1>
+    <div class="feedback-box">
+      <form action="/feedback" method="POST">
+        <textarea name="feedback" rows="6" placeholder="Write your feedback here..."></textarea>
+        <input type="hidden" name="userId" value="<%=userId%>" >
+        <button type="submit">Submit</button>
+      </form>
+      
+    </div>
+    <%}else{%>
+      <h1 class="heading">Thank you for your feedback</h1>
+      <%}%>
+     <div class="bottom-nav">
+        <a href="/dashboard">BACK TO YOUR SPACE</a>
+  </div>
+  </div>
+ 
+  <script>
+    const toggleBtn = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    toggleBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script>
+
+</body>
+</html>

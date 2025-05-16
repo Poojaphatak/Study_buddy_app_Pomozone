@@ -33,7 +33,7 @@
       <h1 class="logo">Pomozone</h1>
       <nav class="nav-top">
         <a href="/spaces">Home</a>
-        <a href="#">Feedback</a>
+        <a href="/feedback/<%=user._id%>">Feedback</a>
         <a href="#">Help</a>
       </nav>
     </header>
@@ -70,7 +70,7 @@
       <nav class="nav-bottom">
         <a href="#" id="timer_tag">Pomodoro</a>
         <a href="/tasklist/<%=user._id%>">To-Do list</a>
-        <a href="#">Progress-bar</a>
+        <a href="/progress/<%=user._id%>">Progress-bar</a>
         <a href="#" id="motivation_tag">Motivation!!</a>
         <a href="#">Music</a>
       </nav>
@@ -78,6 +78,17 @@
   </div>
   <script src="/frontend/dashboard.js"></script>
    <script src="/frontend/pomodoro.js"></script>
+<!-- <script>
+const data = await res.json();
+  if (res.ok) {
+    localStorage.setItem("userId", data.userId); // Store it for later use
+    alert("Login successful!");
+  } else {
+    alert("Login failed: " + data.message);
+  }
 
+
+</script> -->
 </body>
+
 </html>

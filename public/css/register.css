@@ -121,4 +121,7 @@ body {
   .login-link-text:hover {
     color: #FF7F50;
   }
+  .error{
+    color:white;
+  }
   

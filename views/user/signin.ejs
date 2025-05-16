@@ -18,12 +18,17 @@
 
         <input type="text" name="username" placeholder="Enter your username" class="input-field" required />
         <input type="password" name="password" placeholder="Password" class="input-field" required />
+        <% if (typeof error !== 'undefined') { %>
+          <div class="error"><%= error %></div>
+        <% } %>
 
-        <button type="submit" class="submit-button">Sign in</button>
+        <button id="login-btn" type="submit" class="submit-button">Sign in</button>
+
 
         <p class="login-link">New User? <a href="/signup" class="login-link-text">Create Account</a></p>
       </form>
     </div>
   </div>
+  
 </body>
 </html>

@@ -11,7 +11,7 @@
     <nav class="navbar">
         <div class="logo">Pomozone</div>
         <div class="nav-links">
-            <a href="feedback.ejs">Feedback.</a>
+            <a href="/feedback/<%=user._id%>">Feedback.</a>
             <a href="help.ejs">help</a>
         </div>
     </nav>
@@ -66,11 +66,6 @@
             <p>Beneath the gentle patter of rain, the world slows down—each drop a rhythm that soothes the mind and sharpens concentration.</p>
         </div>
     </section>
-     <script>
-  function selectTheme(themeClass) {
-    localStorage.setItem('selectedTheme', themeClass); // Save theme
-    window.location.href = 'main.html'; // Redirect to actual content page
-  }
-</script>
+  
 </body>
 </html>

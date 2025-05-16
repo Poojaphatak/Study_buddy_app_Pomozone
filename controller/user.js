@@ -5,7 +5,7 @@ exports.postregister = async (req,res,next)=>{
     const password=  req.body.password;
     User.findOne({username:userName}).then(user=>{
         if(user){
-          return res.status(400).json({ message: 'Username already exists' });
+           return res.render('user/signup', { error: 'Username already exists' });
         }
         else{
         const newuser = new User({
@@ -25,26 +25,25 @@ exports.postregister = async (req,res,next)=>{
 };
 
 
-exports.postLogin = async (req,res,next)=>{
-     const userName = req.body.username;
-    const password=  req.body.password;
+exports.postLogin = async (req, res, next) => {
+    const userName = req.body.username;
+    const password = req.body.password;
+
+    const user = await User.findOne({ username: userName });
+     const isMatch = await user.comparePassword(password);
+
+    if (!user || !isMatch) {
+    return res.render('user/signin', { error: 'Invalid username or password.' });
+    }
+    console.log(password);
    
-    User.findOne({username:userName}).then(async user=>{
-         const isMatch =await user.comparePassword(password);
-        if(!user || (!isMatch)){
-         return res.status(400).json({ message: 'username or password is incorrect' });
-        
-        }
-        
-        else{
-            req.session.UserId = user._id;
-            
-           res.redirect('/spaces');
-        }
-    });
+   
 
-
+    req.session.UserId = user._id;
+  //  res.json({ userId: user._id });
+    res.redirect('/spaces');
 };
+
 
 exports.getRegister = (req,res,next)=>{
     res.render('user/signup');
