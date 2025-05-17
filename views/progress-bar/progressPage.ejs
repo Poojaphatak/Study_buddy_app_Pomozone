@@ -1,25 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/progress.css">
+  <meta charset="UTF-8">
+  <title>Progress Tracker</title>
+  <link rel="stylesheet" href="/css/progress.css">
 </head>
 <body>
-    <h1>Your Daily Progress </h1>
-    <div class="focus-progress-container">
-  <div class="progress-ring">
-    <svg class="progress-circle" width="120" height="120">
-      <circle class="progress-bg" cx="60" cy="60" r="50" />
-      <circle class="progress-bar" cx="60" cy="60" r="50" />
-    </svg>
-    <div class="progress-text">
-      <div id="progress-percent">0%</div>
-      <div id="progress-detail">0 / 90 mins</div>
+  <div class="container">
+    <h1>📈 Your Focus Progress</h1>
+
+    <div class="progress-circle" id="progressCircle">
+      <span id="progressText">0%</span>
     </div>
+
+    <div class="goal-info">
+      <p>Daily Focus Goal: <span id="dailyGoal"><%=progress.focusGoal%></span> minutes</p>
+      <p>Completed: <span id="completed"><%=progress.focusMins%></span> minutes</p>
+    </div>
+
+    <button class="btn" id="completePomodoro">+ Add 30-Min Pomodoro</button>
+  <div class="bottom_tags">
+    <button class="goal_tag" id="change">change Goal</button>
+    <a class="goal_tag" href="/resetGoal/<%=progress.id%>" >Reset goal</a>
+  
   </div>
-</div>
+  <div class="bottom_box hide">
+    <form action="/changeGoal/<%=progress.id%>" method="POST">
+      <input type="text" value="<%=progress.focusGoal%>" name="focusGoal" placeholder="<%=progress.focusGoal%>">
+      <button id="changeGoal_btn" type="submit">Change Goal</button>
+    </form>
+  </div>
+  </div>
+
+
+  <!-- Scripts --> 
+   <script src="/frontend/progress.js"></script>
+  <script src="/frontend/pomodoro.js"></script>
+
+ <script>
+  const changeGoalBtn = document.querySelector('#changeGoal_btn');
+  const bottomBox = document.querySelector('.bottom_box');
+  document.querySelector('#change').addEventListener('click',()=>{
+    bottomBox.classList.remove("hide");
+
+    
+  });
+  //changeGoalBtn.addEventListener('click',)
+ </script>
+  <!-- <script>
+  document.getElementById("addPomodoro").addEventListener("click", () => {
+  updateProgress(30); // Adds 25 minutes to progress
+});
+</script> -->
 
 </body>
+
 </html>

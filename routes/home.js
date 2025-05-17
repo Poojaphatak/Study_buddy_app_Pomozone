@@ -5,7 +5,7 @@ const userController = require('../controller/user');
 const taskController = require('../controller/toDoTask');
 const homeController = require('../controller/home')
 const progressController = require('../controller/progress')
-
+const Progress = require('../models/progress')
 router.get('/tasks',taskController.getTask);
 
 router.post('/tasks',taskController.postTask);             
@@ -26,7 +26,32 @@ router.get('/feedback/:userId',homeController.getFeedback);
 
 router.post('/feedback/',homeController.postFeedback);
 
-router.post('/progress/:userId/focus',progressController.postProgressGoal)
+router.post('/progress/update',progressController.postProgressGoal)
+router.get('/resetGoal/:id',progressController.getReset)
+router.post('/changeGoal/:id',progressController.changeGoal)
+router.get('/progressPage/:userId',async(req,res,next)=>{
+    const userId=req.params.userId;
+    const progress = await Progress.findOne({userId:userId});
+    if(!progress){
+      return  Progress.create({
+            userId:userId,
+
+
+        }).then(progress=>{
+            res.render('progress-bar/progressPage',{
+                progress:progress,
+            })
+        })
+    }
+    else{
+        console.log(progress._id);
+        res.render('progress-bar/progressPage',{
+            progress:progress
+        })
+    }
+})
+
+
 
 // // GET progress for today
 // router.get('/progress/:userId', async (req, res) => {

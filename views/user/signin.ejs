@@ -16,8 +16,8 @@
       <form action="/signin" method="POST" class="form">
         <h1 class="title">Sign in <span class="highlight">to Pomozone</span></h1>
 
-        <input type="text" name="username" placeholder="Enter your username" class="input-field" required />
-        <input type="password" name="password" placeholder="Password" class="input-field" required />
+        <input type="text" id = "username" name="username" placeholder="Enter your username" class="input-field" required />
+        <input type="password" id="password" name="password" placeholder="Password" class="input-field" required />
         <% if (typeof error !== 'undefined') { %>
           <div class="error"><%= error %></div>
         <% } %>
@@ -29,6 +29,6 @@
       </form>
     </div>
   </div>
-  
+  <script src="/frontend/signin.js"></script>
 </body>
 </html>

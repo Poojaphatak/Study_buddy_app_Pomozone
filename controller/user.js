@@ -30,18 +30,25 @@ exports.postLogin = async (req, res, next) => {
     const password = req.body.password;
 
     const user = await User.findOne({ username: userName });
-     const isMatch = await user.comparePassword(password);
+     
 
-    if (!user || !isMatch) {
-    return res.render('user/signin', { error: 'Invalid username or password.' });
+    if (!user) {
+    return res.status(401).json({ error: 'Invalid username or password.' });
     }
     console.log(password);
+    const isMatch = await user.comparePassword(password);
+
+    if(!isMatch){
+       return res.status(401).json({ error: 'Invalid username or password.' });
+    }
    
    
 
     req.session.UserId = user._id;
-  //  res.json({ userId: user._id });
-    res.redirect('/spaces');
+    // localStorage.setItem("userId", data.userId);
+   res.json({ userId: user._id });
+   // res.redirect('/spaces');
+
 };
 
 
