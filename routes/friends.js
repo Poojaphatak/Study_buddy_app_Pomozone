@@ -10,4 +10,5 @@ router.post('/sendRequest/:id',friendController.sendRequest);
 router.post('/friends/accept/:id',friendController.acceptRequest)
 router.get('/checkRequests',friendController.getFriendRequests);
 router.get('/pendingRequest',friendController.getPendingList);
+router.get('/leaderboard',friendController.getLeaderBoard)
 module.exports=router;

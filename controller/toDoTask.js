@@ -24,13 +24,8 @@ exports.getTask = async (req,res,next)=>{
 
 exports.postTask = async (req, res) => {
     const title = req.body.title;
-    const UserId = req.body.userId || req.session.UserId; // Fallback to session if userId is not in the body
+    const UserId = req.body.userId || req.session.UserId; 
     console.log(UserId);
-
-    // if (!UserId) {
-    //     console.log('Error: UserId is missing');
-    //     return res.status(400).send('Error: UserId is required');
-    // }
 
     const newtask = new Task({
            title:title,

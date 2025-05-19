@@ -3,26 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Connect-Friends</title>
+  <title>Friend List</title>
   <link rel="stylesheet" href="/css/friendList.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <h1>Friend List</h1>
+  <div class="container">
+    <h1>👥 Your Friends</h1>
 
-  <% if (friends.length > 0) { %>
-    <table>
-      <tbody>
-        <% friends.forEach(friend => { %>
-          <tr>
-            <td><%= friend.username %></td>
-          </tr>
-        <% }) %>
-      </tbody>
-    </table>
-  <% } else { %>
-    <h2>No friend connections</h2>
-  <% } %>
+    <% if (friends.length > 0) { %>
+      <table class="friend-table">
+        <tbody>
+          <% friends.forEach(friend => { %>
+            <tr>
+              <td>
+                <i class="fas fa-user-friends friend-icon"></i>
+                <span class="friend-name"><%= friend.username %></span>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <h2 class="no-friends-msg">😕 No friend connections yet</h2>
+    <% } %>
 
-  <a href="/connect" id="connect-friend-tag">Find more friends</a>
+    <a href="/connect" id="connect-friend-tag">🔍 Find more friends</a>
+    <a href="/leaderboard" id="connect-friend-tag">🔥View Leaderboard</a>
+  </div>
 </body>
 </html>
+

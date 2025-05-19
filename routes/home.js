@@ -33,51 +33,5 @@ router.get('/progressPage/:userId',progressController.displayProgress)
 
 
 
-// // GET progress for today
-// router.get('/progress/:userId', async (req, res) => {
-//   const { userId } = req.params;
-//   const today = new Date().toDateString();
-
-//   let progress = await Progress.findOne({ userId, date: today });
-
-//   if (!progress) {
-//     progress = await Progress.create({ userId });
-//   }
-
-//   res.json(progress);
-// });
-
-// // POST to update minutes focused
-// router.post('/:userId/focus', async (req, res) => {
-//   const { userId } = req.params;
-//   const { minutes } = req.body;
-//   const today = new Date().toDateString();
-
-//   const progress = await Progress.findOneAndUpdate(
-//     { userId, date: today },
-//     { $inc: { minutesFocused: minutes } },
-//     { new: true, upsert: true }
-//   );
-
-//   res.json(progress);
-// });
-
-// // PATCH to update goal
-// router.patch('/:userId/goal', async (req, res) => {
-//   const { userId } = req.params;
-//   const { focusGoal } = req.body;
-//   const today = new Date().toDateString();
-
-//   const progress = await Progress.findOneAndUpdate(
-//     { userId, date: today },
-//     { focusGoal },
-//     { new: true, upsert: true }
-//   );
-
-//   res.json(progress);
-// });
-
-// module.exports = router;
-
 
 module.exports=router;

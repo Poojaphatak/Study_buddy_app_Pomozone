@@ -33,19 +33,17 @@
         <tr>
           <td><%= task.title %></td>
 
-          <!-- Checkbox Column -->
+       
           <td>
             <form action="/check-task/<%=task.id%>" method="POST">
               <input type="checkbox" onchange="this.form.submit()" <%= task.completed ? 'checked' : '' %> />
             </form>
           </td>
 
-          <!-- Actions Column -->
           <td class="actions">
-            <!-- Edit button -->
+        
             <a href="/edit-task/<%=task.id%>?edit=true" class="btn edit-btn">Edit</a>
 
-            <!-- Delete button -->
             <a href="/delete-task/<%=task.id%>" class="btn delete-btn">Delete</a>
           </td>
         </tr>

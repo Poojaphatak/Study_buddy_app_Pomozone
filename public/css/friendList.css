@@ -1,54 +1,75 @@
 /* General page styling */
+/* friendList.css */
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fff9f4;
   margin: 0;
-  padding: 20px;
+  padding: 0;
+  background: #fff7f0;
   color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.container {
+  margin-top: 40px;
+  width: 90%;
+  max-width: 600px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   text-align: center;
 }
 
-/* Main heading */
 h1 {
-  color: #ff7f00;
+  color: #ff7e5f;
   font-size: 2rem;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
-/* Friend username cells */
-td {
-  display: block;
-  margin: 10px auto;
-  padding: 12px 18px;
-  background-color: #ffe0cc;
-  border-radius: 10px;
-  width: fit-content;
-  font-weight: bold;
-  color: #333;
-  font-size: 1rem;
+.friend-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
 }
 
-/* No friends message */
-h2 {
-  color: #999;
-  margin-top: 20px;
+.friend-table td {
+  padding: 12px;
+  text-align: left;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #eee;
 }
 
-/* Link to find more friends */
+.friend-icon {
+  color: #ff7e5f;
+  margin-right: 10px;
+}
+
+.friend-name {
+  vertical-align: middle;
+}
+
 #connect-friend-tag {
   display: inline-block;
-  margin-top: 40px;
-  padding: 12px 20px;
-  background-color: transparent;
-  color: #ff7f00;
-  border: 2px solid #ff7f00;
-  border-radius: 8px;
+  margin-top: 25px;
+  background-color: #ff7e5f;
+  color: white;
   text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: background 0.3s ease;
 }
 
 #connect-friend-tag:hover {
-  background-color: #ff7f00;
-  color: white;
+  background-color: #ff633f;
+}
+
+.no-friends-msg {
+  color: #888;
+  font-size: 1.2rem;
+  margin-top: 20px;
 }

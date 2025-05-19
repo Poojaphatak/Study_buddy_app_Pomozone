@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaderboard</title>
+  <link rel="stylesheet" href="/css/leaderboard.css">
+</head>
+<body>
+  <div class="leaderboard-container">
+    <h1>🏆 Focus Leaderboard</h1>
+    <p>Ranking based on today’s focus minutes</p>
+
+    <% if (leaderboard.length > 0) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>User</th>
+            <th>Focus Minutes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% leaderboard.forEach((entry, index) => { %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td>👤 <%= entry.username %></td>
+              <td><%= entry.focusMins %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <h2>No data available yet.</h2>
+    <% } %>
+
+    <a class="back-btn" href="/displayFriends">← Back to Friends</a>
+  </div>
+</body>
+</html>

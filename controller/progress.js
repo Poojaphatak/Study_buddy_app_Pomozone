@@ -18,7 +18,7 @@ exports.getProgressPage= async (req, res) => {
       return res.status(404).json({ message: "No progress found" });
     }
 
-    res.json(progress); // This should return the actual document
+    res.json(progress);
   } catch (error) {
     console.error("Error fetching progress:", error);
     res.status(500).json({ message: "Server error" });
@@ -48,9 +48,6 @@ exports.postProgressGoal= async (req, res) => {
         date:today
       });
 
-      // res.render('/progress-bar/progress',{
-      //   progress:progress,
-      // });
     } else {
       progress.focusMins += minutes;
       await progress.save();
@@ -108,73 +105,17 @@ exports.changeGoal = async (req, res, next) => {
     res.status(500).send("Server error");
   }
 };
-// exports.displayProgress =async(req,res,next)=>{
-//   const today = new Date();
-//   today.setHours(0, 0, 0, 0); // sets time to 00:00:00.000
-//   let streak = 0;
-//   let currentDate = new Date(today);
-//   console.log(currentDate);
-//  let todayProgress;
-//     const userId=req.params.userId;
-//     const progress = await Progress.findOne({userId:userId,lastLogin:currentDate});
-//     let taskcount=0;
-//    const tasks= await Task.find({userId:userId,completed:true});
-//    console.log(tasks.length);
-//    if(tasks){
-//     taskcount = tasks.length;
-//    }
-//     if(!progress){
-//       progress=await Progress.create({
-//             userId:userId,
-//             date:currentDate,
 
-//         // }).then(progress=>{
-//         //     res.render('progress-bar/progressPage',{
-//         //         progress:progress,
-//         //         taskcount:taskcount,
-//         //         streak:streak,
-//         //     })
-//         // })
-//     })
-//    await progress.save();
-//   }
-
-
-   
-// //       while (true) {
-// //   const progress = await Progress.findOne({
-// //     userId: req.session.userId,
-// //     date: currentDate,
-// //     focusMins: { $gte: 1 } // assuming minimum 1 minute to count as a focused day
-// //   });
-
-// //   if (progress) {
-// //     streak++;
-// //     // Move to the previous day
-// //     currentDate.setDate(currentDate.getDate() - 1);
-// //   } else {
-// //     break; // stop streak when a day is missed
-// //   }
-// // }
-
-       
-//         res.render('progress-bar/progressPage',{
-//             progress:progress,
-//             taskcount:taskcount,
-//             streak:streak,
-
-//         })
-//     }
 
 exports.displayProgress = async (req, res, next) => {
   try {
     const today = new Date();
-    today.setHours(0, 0, 0, 0); // sets time to 00:00:00.000
+    today.setHours(0, 0, 0, 0); 
     let streak = 0;
     let currentDate = new Date(today);
     const userId = req.params.userId;
     console.log(currentDate);
-    // Always filter by userId and date
+
 
 const tomorrow = new Date(today);
 tomorrow.setDate(today.getDate() + 1);
@@ -202,15 +143,15 @@ let progress = await Progress.findOne({
   const progress = await Progress.findOne({
     userId: userId,
     date: currentDate,
-     // assuming minimum 1 minute to count as a focused day
+  
   });
 
   if (progress) {
     streak++;
-    // Move to the previous day
+  
     currentDate.setDate(currentDate.getDate() - 1);
   } else {
-    break; // stop streak when a day is missed
+    break; 
   }
 }
 

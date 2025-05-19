@@ -27,9 +27,9 @@ const userSchema = new Schema ({
 });
 
 userSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) return next(); // skip if password isn't changed
+  if (!this.isModified("password")) return next();
   try {
-    const salt = await bcrypt.genSalt(12); // 12 rounds is standard
+    const salt = await bcrypt.genSalt(12); 
     this.password = await bcrypt.hash(this.password, salt);
     next();
   } catch (err) {
@@ -38,7 +38,7 @@ userSchema.pre("save", async function (next) {
 });
 
 userSchema.methods.comparePassword=async function(candidatePassword){
-   //const hashedPassword = await bcrypt.hash(candidatePassword,salt);
+  
    return bcrypt.compare(candidatePassword,this.password);
 
 
