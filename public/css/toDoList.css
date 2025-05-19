@@ -3,7 +3,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background: url('/mnt/data/035783dc-996d-43da-85d2-165bc21a0f02.png') no-repeat center center fixed;
+    background: url('https://i.pinimg.com/736x/68/30/5c/68305cf54f3a4e69bb24654692552e7e.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #f4f1ee;
     position: relative;
@@ -14,11 +14,11 @@ body::before {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.55); /* soft dimming */
     z-index: -1;
 }
 
-
+/* === NAVBAR TOP === */
 .navbar-top {
     background: transparent;
     padding: 20px 40px;
@@ -30,7 +30,7 @@ body::before {
 .navbar-top .logo {
     font-size: 28px;
     font-weight: bold;
-    color: #d06c29; 
+    color: #ff7f32; /* warm orange */
 }
 
 .navbar-top .nav-links {
@@ -47,70 +47,89 @@ body::before {
 }
 
 .navbar-top .nav-links a:hover {
-    color: #d6bfa3;
+    color: #ffd8b0;
 }
 
-
-.navbar-bottom {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: rgba(25, 13, 10, 0.7);
-    padding: 15px 0;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    backdrop-filter: blur(6px);
-}
-
-.navbar-bottom a {
-    color: #fff3e9;
-    text-decoration: none;
-    font-size: 15px;
-    transition: 0.3s ease;
-}
-
-.navbar-bottom a:hover {
-    color: #e7b98b;
-}
-
-
+/* === MAIN HEADING === */
 h1 {
     text-align: center;
-    color: #d6bfa3;
-    margin: 30px 0 20px;
-    font-size: 2.4em;
+    color: #ffe2c6;
+    margin: 40px 0 20px;
+    font-size: 2.5em;
+    font-weight: bold;
 }
 
-
-.task-table {
-    width: 80%;
+/* === TASK INPUT PANEL === */
+.task-input-container {
+    max-width: 400px;
     margin: 0 auto;
-    border-collapse: collapse;
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    overflow: hidden;
-    color: #f4f1ee;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-.task-table th, .task-table td {
-    padding: 15px;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+.task-input-container input[type="text"] {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    outline: none;
+    background-color: #fff7ef;
+    color: #6F3414;
+}
+
+.task-input-container button {
+    background-color: #b65a20;
+    color: #fff7ef;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.task-input-container button:hover {
+    background-color: #8f4319;
+}
+
+/* === TASK TABLE === */
+.task-table {
+    width: 85%;
+    margin: 40px auto;
+    border-collapse: collapse;
+    background: rgba(255, 247, 239, 0.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    overflow: hidden;
+    color: #fff4e9;
 }
 
 .task-table th {
-    background-color: #5b2c22; 
-    color: #fefefe;
+    background-color: rgba(111, 52, 20, 0.9);
+    color: #fff7ef;
+    padding: 14px;
+    font-size: 16px;
+}
+
+.task-table td {
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .task-table tr:hover {
-    background-color: rgba(208, 108, 41, 0.15);
+    background-color: rgba(255, 255, 255, 0.06);
 }
 
-/* === BUTTONS === */
+/* === ACTION BUTTONS === */
 .actions {
     display: flex;
     justify-content: center;
@@ -119,41 +138,77 @@ h1 {
 
 .btn {
     text-decoration: none;
-    padding: 8px 14px;
-    border-radius: 5px;
-    font-size: 14px;
+    padding: 7px 12px;
+    border-radius: 6px;
+    font-size: 13px;
     cursor: pointer;
-    transition: 0.3s;
     color: white;
     border: none;
+    transition: 0.3s;
 }
 
 .edit-btn {
-    background-color: #b8743b;
+    background-color: #c07a3f;
 }
 
 .delete-btn {
-    background-color: #8b3e2a;
-}
-
-.add-task-btn {
-    display: block;
-    margin: 30px auto;
-    background-color: #d06c29;
-    color: #fff;
-    text-align: center;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: bold;
+    background-color: #a4432c;
 }
 
 .btn:hover {
-    opacity: 0.8;
+    opacity: 0.85;
 }
 
+/* === ADD BUTTON === */
+.add-task-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
 
+.add-task-btn {
+    background-color: #d06c29;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.add-task-btn:hover {
+    background-color: #b85a1f;
+}
+
+/* === FOOTER NAV === */
+.navbar-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(30, 15, 10, 0.65);
+    padding: 12px 0;
+    display: flex;
+    justify-content: center;
+    backdrop-filter: blur(6px);
+    z-index: 10;
+}
+
+.navbar-bottom a {
+    color: #fff4e5;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.navbar-bottom a:hover {
+    color: #ffd1a1;
+}
+
+/* === CHECKBOX === */
 input[type="checkbox"] {
-    transform: scale(1.5);
+    transform: scale(1.4);
     cursor: pointer;
     accent-color: #d06c29;
 }

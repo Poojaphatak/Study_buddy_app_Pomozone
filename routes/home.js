@@ -29,27 +29,7 @@ router.post('/feedback/',homeController.postFeedback);
 router.post('/progress/update',progressController.postProgressGoal)
 router.get('/resetGoal/:id',progressController.getReset)
 router.post('/changeGoal/:id',progressController.changeGoal)
-router.get('/progressPage/:userId',async(req,res,next)=>{
-    const userId=req.params.userId;
-    const progress = await Progress.findOne({userId:userId});
-    if(!progress){
-      return  Progress.create({
-            userId:userId,
-
-
-        }).then(progress=>{
-            res.render('progress-bar/progressPage',{
-                progress:progress,
-            })
-        })
-    }
-    else{
-        console.log(progress._id);
-        res.render('progress-bar/progressPage',{
-            progress:progress
-        })
-    }
-})
+router.get('/progressPage/:userId',progressController.displayProgress)
 
 
 

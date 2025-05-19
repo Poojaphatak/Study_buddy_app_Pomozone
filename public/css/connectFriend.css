@@ -1,0 +1,93 @@
+/* connectFriend.css */
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fffaf5;
+  margin: 0;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  color: #ff7f00;
+  margin-bottom: 30px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: auto;
+}
+
+li {
+  background-color: #fff3e0;
+  margin: 10px 0;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(255, 165, 0, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+form {
+  margin: 0;
+}
+
+.send_req_btn {
+  background-color: #ffa500;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.send_req_btn:hover {
+  background-color: #e69500;
+}
+
+#req_status {
+  font-size: 14px;
+  color: green;
+  margin-top: 5px;
+}
+
+.hide {
+  display: none;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: #ff7f00;
+  font-weight: bold;
+  margin: 20px;
+  text-align: center;
+}
+
+a:hover {
+  color: #e67300;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .send_req_btn {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  a {
+    display: block;
+    margin: 10px auto;
+  }
+}

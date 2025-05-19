@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect-Friends</title>
+  <link rel="stylesheet" href="/css/friendList.css">
+</head>
+<body>
+  <h1>Friend List</h1>
+
+  <% if (friends.length > 0) { %>
+    <table>
+      <tbody>
+        <% friends.forEach(friend => { %>
+          <tr>
+            <td><%= friend.username %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h2>No friend connections</h2>
+  <% } %>
+
+  <a href="/connect" id="connect-friend-tag">Find more friends</a>
+</body>
+</html>

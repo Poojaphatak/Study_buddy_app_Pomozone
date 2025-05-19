@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sent Requests</title>
+    <link rel="stylesheet" href="/css/sentRequests.css">
+</head>
+
+<body>
+        <% if (user.sentRequestList && user.sentRequestList.length > 0) { %>
+            <table>
+                <tr>
+                    <th>Username</th>
+                </tr>
+                <% user.sentRequestList.forEach(pendingRequest => { %>
+                    <tr>
+                        <td><%= pendingRequest.username %></td>
+                    </tr>
+                <% }) %>
+            </table>
+        <% } else { %>
+            <h2>No pending requests</h2>
+        <% } %>
+          <a class="back-link" href="/displayFriends">← Back to Friends List</a>
+</body>
+</html>

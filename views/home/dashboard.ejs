@@ -8,18 +8,18 @@
   <link rel="stylesheet" href="css/pomodoro.css">
 
 </head>
-<body>
+<body id ="main_body" >
 
     
   <!-- YouTube Video Background -->
-  <div class="video-background">
+  <!-- <div class="video-background">
     <iframe 
       src="https://www.youtube.com/embed/0L38Z9hIi5s?autoplay=1&mute=1&controls=0&loop=1&playlist=0L38Z9hIi5s&modestbranding=1&showinfo=0&rel=0" 
       frameborder="0" 
       allow="autoplay; fullscreen" 
       allowfullscreen>
     </iframe>
-  </div>
+  </div> -->
   
 
   
@@ -34,7 +34,7 @@
       <nav class="nav-top">
         <a href="/spaces">Home</a>
         <a href="/feedback/<%=user._id%>">Feedback</a>
-        <a href="#">Help</a>
+        <a class="logoutBtn" href="#">Logout</a>
       </nav>
     </header>
 <!-- ===Motivation=== -->
@@ -71,26 +71,18 @@
         <a href="#" id="timer_tag">Pomodoro</a>
         <a href="/tasklist/<%=user._id%>">To-Do list</a>
         <a href="/progressPage/<%=user._id%>">Progress-bar</a>
-        <a href="#" id="motivation_tag">Motivation!!</a>
+        <a href="#" id="motivation_tag">Motivation!</a>
         <a href="#">Music</a>
+        <a href="/displayFriends">Connect With Friends</a>
       </nav>
     </footer>
   </div>
-
+<script src="/frontend/theme.js"></script>
+<script src="/frontend/logout.js"></script>
   <script src="/frontend/dashboard.js"></script>
   <script src="/frontend/progress.js"></script>
    <script src="/frontend/pomodoro.js"></script>
-<!-- <script>
-const data = await res.json();
-  if (res.ok) {
-    localStorage.setItem("userId", data.userId); // Store it for later use
-    alert("Login successful!");
-  } else {
-    alert("Login failed: " + data.message);
-  }
 
-
-</script> -->
 </body>
 
 </html>

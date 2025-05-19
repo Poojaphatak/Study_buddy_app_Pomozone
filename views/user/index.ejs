@@ -3,64 +3,136 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%=pageTitle%>></title>
+    <title>Pomozone</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    
     <style>
-      /* Tailwind config override */
+      html {
+        scroll-behavior: smooth;
+      }
       body {
         font-family: 'Poppins', sans-serif;
       }
-      h1 {
+      h1, h2 {
         font-family: 'Playfair Display', serif;
       }
     </style>
   </head>
-  <body class="m-0 p-0">
-    <!-- Background Image with Overlay -->
-    <div
-      class="relative min-h-screen bg-cover bg-center"
-      style="background-image: url('https://i.pinimg.com/736x/68/30/5c/68305cf54f3a4e69bb24654692552e7e.jpg');"
-    >
-     <!-- Black translucent overlay (10% lighter) -->
-<div class="absolute inset-0 bg-black/50 z-0"></div>
+  <body class="bg-white text-gray-800">
 
+    <!-- Hero Section -->
+    <section class="relative min-h-screen bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/68/30/5c/68305cf54f3a4e69bb24654692552e7e.jpg');">
+      <div class="absolute inset-0 bg-black/30"></div>
+      <div class="relative z-10 flex flex-col items-center justify-center text-center min-h-screen px-4 text-white">
+        <h2 class="text-sm sm:text-lg tracking-widest uppercase font-medium mb-4 animate-fade-in">Welcome to</h2>
+        <h1 class="text-[2.75rem] sm:text-[4rem] md:text-[5rem] font-semibold mb-3 leading-tight animate-slide-up">Pomozone</h1>
+        <p class="text-base sm:text-xl font-light mb-8 animate-fade-in delay-100">Pom it. Zone it. Own it.</p>
 
-      <!-- Main content section -->
-      <main class="relative z-10 flex flex-col items-center justify-center min-h-screen text-white text-center px-4">
-        <!-- Welcome Text -->
-        <h2 class="text-base sm:text-lg tracking-widest uppercase font-medium mb-4">
-          Welcome to
-        </h2>
-
-        <!-- Main Title -->
-        <h1 class="text-[3.25rem] sm:text-[4.25rem] md:text-[5.5rem] font-semibold mb-3 leading-tight">
-          Pomozone
-        </h1>
-
-        <!-- Tagline -->
-        <p class="text-lg sm:text-xl font-light mb-6">
-          Pom it. Zone it. Own it.
-        </p>
-
-        <!-- Buttons -->
-        <div class="flex gap-4">
-          <a
-            href="/signin"
-            class="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg transition"
-            >Sign In</a
-          >
-          <a
-            href="/signup"
-            class="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg transition"
-            >Sign Up</a
-          >
+        <div class="flex gap-4 mb-10 animate-fade-in delay-200">
+          <a href="/signin" class="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition">Sign In</a>
+          <a href="/signup" class="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition">Sign Up</a>
         </div>
-      </main>
-    </div>
-  </body>
+
+        <a href="#why" class="text-sm underline text-orange-400 hover:text-orange-300 transition animate-fade-in delay-300">Scroll Down</a>
+      </div>
+    </section>
+
+    <!-- Why Pomozone -->
+    <section id="why" class="bg-[#b99984] text-white text-center py-20 px-6">
+      <h2 class="text-4xl sm:text-5xl font-semibold mb-10">Why Pomozone?</h2>
+      <ul class="space-y-4 text-xl">
+        <li>🎯 Focus with Pomodoro Technique</li>
+        <li>🧘 Study in your own immersive space</li>
+        <li>🌱 Track progress & build study streaks</li>
+      </ul>
+    </section>
+
+    <!-- Features -->
+    <section class="bg-[#a04f15] text-white py-20 px-6 space-y-20">
+      <div class="flex flex-col md:flex-row items-center justify-around gap-10">
+        <img src="https://i.pinimg.com/736x/4b/e8/20/4be8206c1713578ece4633becbe652f8.jpg" alt="Library" class="w-80 md:w-96 rounded-xl shadow-lg transition hover:scale-105 hover:brightness-110 transition duration-300" />
+        <div class="text-lg space-y-4 max-w-md animate-fade-in delay-150">
+          <p>⏱ Pomodoro Timer</p>
+          <p>🔥 Streak Marker</p>
+          <p>📊 Progress Tracker</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col-reverse md:flex-row items-center justify-around gap-10">
+        <div class="text-lg space-y-4 max-w-md animate-fade-in delay-200">
+          <p>🌌 6 Custom Study Spaces</p>
+          <p>💬 Motivational Quotes & Affirmations</p>
+        </div>
+        <img src="https://i.pinimg.com/736x/90/4a/30/904a3097492a898b3b0f9711c37f2e1f.jpg" alt="City View" class="w-80 md:w-96 rounded-xl shadow-lg transition hover:scale-105 hover:brightness-110 transition duration-300" />
+      </div>
+    </section>
+
+    <!-- Study Section -->
+    <section class="bg-[#f3e8df] py-20 px-6">
+      <div class="flex flex-col md:flex-row items-center justify-around gap-10">
+        <img src="https://i.pinimg.com/736x/5f/f1/f5/5ff1f56561ce6a9258929f51257d2c5e.jpg" alt="Study Desk" class="w-80 md:w-96 rounded-xl shadow-md transition hover:scale-105 hover:brightness-110 transition duration-300" />
+        <div class="text-lg text-[#222] space-y-4 max-w-md animate-fade-in delay-200">
+          <p>🎵 Ambient Sounds</p>
+          <p>👫 Social Study Mode</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="bg-[#d9c1b5] text-center py-20 px-6">
+      <h2 class="text-4xl sm:text-5xl font-semibold mb-12">What Users Say</h2>
+      <div class="flex flex-wrap justify-center gap-10">
+        <div class="bg-white rounded-xl shadow-xl p-6 max-w-xs animate-fade-in delay-100">
+          <img src="https://i.pinimg.com/736x/34/9a/27/349a270a644342f78a87f667874a963d.jpg" alt="User 1" class="rounded-lg w-full mb-4 hover:scale-105 hover:brightness-110 transition duration-300" />
+          <p class="italic text-sm">“Pomozone changed the way I study. The ambient sounds and immersive environments keep me focused for hours.” – Aria, Berlin</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-xl p-6 max-w-xs animate-fade-in delay-200">
+          <img src="https://i.pinimg.com/736x/30/b6/0c/30b60c4e78877f06dad1008e356b2ada.jpg" alt="User 2" class="rounded-lg w-full mb-4 hover:scale-105 hover:brightness-110 transition duration-300" />
+          <p class="italic text-sm">“I never thought I’d stick to the Pomodoro method until Pomozone. Love the streak tracker!” – Rohan, Mumbai</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-xl p-6 max-w-xs animate-fade-in delay-300">
+          <img src="https://i.pinimg.com/736x/81/47/35/814735e6ae61c2f4a6bb93de25576e4f.jpg" alt="User 3" class="rounded-lg w-full mb-4hover:scale-105 hover:brightness-110 transition duration-300" />
+          <p class="italic text-sm">“Studying with others virtually made me feel less alone. Social Study Mode rocks!” – Mei, Tokyo</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Animation Styles -->
+    <style>
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 1s ease-out forwards;
+        opacity: 0;
+      }
+
+      .animate-slide-up {
+        animation: slideUp 1.2s ease-out forwards;
+        opacity: 0;
+      }
+
+      .delay-100 { animation-delay: 0.1s; }
+      .delay-150 { animation-delay: 0.15s; }
+      .delay-200 { animation-delay: 0.2s; }
+      .delay-300 { animation-delay: 0.3s; }
+    </style>
+
+  </body>
 </html>

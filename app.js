@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const taskRouter= require('./routes/home');
+const friendRouter = require('./routes/friends');
 const app = express(); 
 app.use(express.static("public"));
 const userRouter = require('./routes/user');
@@ -23,6 +24,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 const mongoose = require('mongoose');
 app.use(userRouter);
 app.use(taskRouter);
+app.use(friendRouter);
 app.get('/signin',async(req,res,next)=>{
     res.render('user/signin');
 })

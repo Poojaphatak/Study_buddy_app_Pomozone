@@ -22,7 +22,7 @@ const progressSchema = new Schema ({
 
  date: {
     type: Date,
-    default: () => new Date().toDateString() // reset daily
+    default: null,
   }
 });
 module.exports = mongoose.model('Progress',progressSchema);

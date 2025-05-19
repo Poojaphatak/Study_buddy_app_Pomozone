@@ -1,20 +1,20 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+  } */
   
   /* Body Styling */
-  body, html {
+  /* body, html {
     height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #fff;
     position: relative;
     overflow: hidden;
-  }
+  } */
   
   /* Video Background */
-  .video-background {
+  /* .video-background {
     position: fixed;
     top: 0;
     left: 0;
@@ -22,24 +22,76 @@
     height: 100vh;
     overflow: hidden;
     z-index: -2;
-  }
+  } */
   
-  .video-background iframe {
+  /* .video-background iframe {
     width: 100vw;
     height: 100vh;
     pointer-events: none;
-  }
+  } */
   
   /* Overlay for contrast */
-.overlay {
+/* .overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(30, 30, 30, 0.4); /* 20% lighter */
-    z-index: -1;
+  /*  z-index: -1;
   }
+  */
+  /* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  overflow: hidden;
+ 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.bg-theme1{
+ background-image: url('../gif/library.gif'); 
+}
+.bg-theme2{
+ background-image: url('../gif/cafe.gif'); 
+}
+.bg-theme3{
+ background-image: url('../gif/sea.gif'); 
+}
+.bg-theme4{
+ background-image: url('../gif/city2.gif'); 
+}
+.bg-theme5{
+ background-image: url('../gif/snow.gif'); 
+}
+.bg-theme6{
+ background-image: url('../gif/rain.gif'); 
+}
+
+/* Overlay for better readability */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
   
   
   /* Content Styling */
@@ -88,4 +140,141 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+  }
+
+  .motivation_box {
+    position: fixed;
+    top: 3.5rem; /* Increased top margin */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 247, 239, 0.6); /* 60% transparent soft cream */
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(172, 104, 50, 0.15);
+    text-align: center;
+    max-width: 90%;
+    z-index: 1000;
+    backdrop-filter: blur(4px); /* Optional: adds subtle glassmorphism */
+    font-size: 1rem;
+    color: #6F3414;
+    transition: all 0.3s ease;
+  }
+  
+  /* Quote styling */
+  #quote-box {
+    font-style: italic;
+    font-weight: 500;
+    margin: 0 0 0.5rem;
+  }
+  
+  /* Button styling */
+  #quote_btn {
+    background: #AA540F;
+    color: #FFF7EF;
+    border: none;
+    border-radius: 8px;
+    padding: 0.4rem 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  #quote_btn:hover {
+    background: #6F3414;
+  }
+
+  .timer-app {
+    position: fixed;       /* so it stays fixed on screen */
+    top: 50%;             /* vertical center */
+    left: 0;              /* align to left edge */
+    transform: translateY(-50%);  /* center vertically by offsetting half height */
+    background: rgba(255, 247, 239, 0.6); /* #FFF7EF with 60% opacity */
+    color: #6F3414;
+    box-shadow: 0 4px 10px rgba(111, 52, 20, 0.2);
+    border-radius: 12px;
+    max-width: 320px;     /* responsive max width */
+    width: 90vw;          /* responsive width for small screens */
+    padding: 20px 24px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+    z-index: 1000;
+  }
+  
+  .timer-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+  
+  .header .dots span {
+    color: #6F3414;
+    font-weight: 900;
+    font-size: 1.6rem;
+    line-height: 0;
+    margin-left: 4px;
+  }
+  
+  .timer-display {
+    text-align: center;
+  }
+  
+  #time {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+  }
+  
+  button {
+    background: transparent;
+    border: 2px solid #6F3414;
+    color: #6F3414;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+  
+  button:hover {
+    background-color: #6F3414;
+    color: #FFF7EF;
+  }
+  
+  #modes {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .modes button.mode {
+    border-color: #6F3414;
+    padding: 6px 14px;
+    font-size: 0.9rem;
+  }
+  
+  .modes button.mode.active {
+    background-color: #6F3414;
+    color: #FFF7EF;
+  }
+  
+  @media (max-width: 400px)
+  {
+    .timer-app {
+      max-width: 95vw;
+      padding: 16px 20px;
+    }
+  
+    #time {
+      font-size: 2.4rem;
+    }
+  
   }

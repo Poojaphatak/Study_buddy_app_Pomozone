@@ -28,6 +28,7 @@ exports.postregister = async (req,res,next)=>{
 exports.postLogin = async (req, res, next) => {
     const userName = req.body.username;
     const password = req.body.password;
+    
 
     const user = await User.findOne({ username: userName });
      
@@ -74,4 +75,18 @@ exports.getSpaces = async (req,res,next)=>{
 
     })
 })}
-   
+ 
+
+exports.getLogout = async (req,res,next)=>{
+    req.session.destroy(err=>{
+        if(err){
+        res.redirect('/dashboard');
+
+        }
+        res.clearCookie('connect.sid');
+        res.redirect('/');
+    })
+
+
+}
+

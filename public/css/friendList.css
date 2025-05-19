@@ -1,0 +1,54 @@
+/* General page styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff9f4;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+  text-align: center;
+}
+
+/* Main heading */
+h1 {
+  color: #ff7f00;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+/* Friend username cells */
+td {
+  display: block;
+  margin: 10px auto;
+  padding: 12px 18px;
+  background-color: #ffe0cc;
+  border-radius: 10px;
+  width: fit-content;
+  font-weight: bold;
+  color: #333;
+  font-size: 1rem;
+}
+
+/* No friends message */
+h2 {
+  color: #999;
+  margin-top: 20px;
+}
+
+/* Link to find more friends */
+#connect-friend-tag {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 12px 20px;
+  background-color: transparent;
+  color: #ff7f00;
+  border: 2px solid #ff7f00;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+#connect-friend-tag:hover {
+  background-color: #ff7f00;
+  color: white;
+}
