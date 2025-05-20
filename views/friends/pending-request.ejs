@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,5 +24,46 @@
             <h2>No pending requests</h2>
         <% } %>
           <a class="back-link" href="/displayFriends">← Back to Friends List</a>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sent Requests</title>
+  <link rel="stylesheet" href="/css/sentRequests.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h2>📤 Pending Friend Requests</h2>
+
+    <% if (user.sentRequestList && user.sentRequestList.length > 0) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>Username</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% user.sentRequestList.forEach(pendingRequest => { %>
+            <tr>
+              <td>👤 <%= pendingRequest.username %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <p class="empty-text">No pending requests</p>
+    <% } %>
+
+    <a class="back-link" href="/displayFriends">← Back to Friends List</a>
+  </div>
+
+  <footer class="bottom-navbar">
+    <a href="/dashboard">BACK TO YOUR SPACE</a>
+  </footer>
+
 </body>
 </html>

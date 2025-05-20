@@ -8,29 +8,45 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h1>👥 Your Friends</h1>
+    <nav class="top-navbar">
+        <div class="navbar-brand">Pomozone</div>
+        <div class="navbar-links">
+          <a href="/">Home</a>
+          <a href="/feedback">Feedback</a>
+        </div>
+      </nav>
+      
+  <div class="overlay">
+    <div class="container">
+      <h1>👥 Your Friends</h1>
 
-    <% if (friends.length > 0) { %>
-      <table class="friend-table">
-        <tbody>
-          <% friends.forEach(friend => { %>
-            <tr>
-              <td>
-                <i class="fas fa-user-friends friend-icon"></i>
-                <span class="friend-name"><%= friend.username %></span>
-              </td>
-            </tr>
-          <% }) %>
-        </tbody>
-      </table>
-    <% } else { %>
-      <h2 class="no-friends-msg">😕 No friend connections yet</h2>
-    <% } %>
+      <% if (friends.length > 0) { %>
+        <table class="friend-table">
+          <tbody>
+            <% friends.forEach(friend => { %>
+              <tr>
+                <td>
+                  <i class="fas fa-user-friends friend-icon"></i>
+                  <span class="friend-name"><%= friend.username %></span>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      <% } else { %>
+        <h2 class="no-friends-msg">😕 No friend connections yet</h2>
+      <% } %>
 
-    <a href="/connect" id="connect-friend-tag">🔍 Find more friends</a>
-    <a href="/leaderboard" id="connect-friend-tag">🔥View Leaderboard</a>
+      <div class="nav-buttons">
+        <a href="/connect" class="btn">🔍 Find more friends</a>
+        <a href="/leaderboard" class="btn">🔥 View Leaderboard</a>
+
+      </div>
+    </div>
   </div>
+  <footer class="bottom-navbar">
+    <a href="/dashboard">BACK TO YOUR SPACE</a>
+  </footer>
+  
 </body>
 </html>
-

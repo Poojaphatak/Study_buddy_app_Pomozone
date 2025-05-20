@@ -1,5 +1,5 @@
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -30,5 +30,43 @@
     <a href="/pendingRequest">Pending Requests</a>
   </div>
 
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Connect with Friends</title>
+  <link rel="stylesheet" href="/css/connectFriend.css"/>
+</head>
+<body>
+
+  <div class="overlay">
+    <div class="task-box">
+      <h2>Connect with others</h2>
+
+      <ul>
+        <% users.forEach(user => { %>
+          <li>
+            <% if (!currentUser.friendRequests.includes(user._id) && !currentUser.friends.includes(user._id)) { %>
+              <span class="username"><%= user.username %></span>
+              <form action="/sendRequest/<%= user._id %>" method="POST">
+                <button class="send_req_btn" type="submit">Send Request</button>
+              </form>
+            <% } %>
+          </li>
+        <% }) %>
+      </ul>
+
+      <div class="nav-links">
+        <a href="/checkRequests">Friend Requests</a>
+        <a href="/pendingRequest">Pending Requests</a>
+      </div>
+    </div>
+  </div>
+<footer class="bottom-navbar">
+    <a href="/dashboard">Back To Your Space</a>
+  </footer>
 </body>
 </html>

@@ -7,13 +7,13 @@
   <link rel="stylesheet" href="/css/toDoNavbar.css" />
 </head>
 
-<body>
+<!-- <body>
   <div class="top-nav">
     <div class="logo">Pomozone</div>
     <div class="menu">
       <a href="/spaces">Home</a>
       <a href="/feedback/<%=userId%>">Feedback</a>
-      <a href="#">Help</a>
+      
     </div>
   </div>
 
@@ -53,8 +53,59 @@
 
   <br />
   <a href="/tasks" class="btn add-task-btn">Add New Task</a>
+
+
   <div class="bottom-nav">
-        <a href="/dashboard">BACK TO YOUR SPACE</a>
+        <a href="/dashboard">Back To Your Space</a>
+  </div>
+
+</body> -->
+<body>
+  <div class="top-nav fixed-nav">
+    <div class="logo">Pomozone</div>
+    <div class="menu">
+      <a href="/spaces">Home</a>
+      <a href="/feedback/<%=userId%>">Feedback</a>
+    </div>
+  </div>
+
+  <div class="main-wrapper">
+    <h1>Your Tasks</h1>
+
+    <table class="task-table">
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Completed</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% tasks.forEach(task => { %>
+          <tr>
+            <td><%= task.title %></td>
+            <td>
+              <form action="/check-task/<%=task.id%>" method="POST">
+                <input type="checkbox" onchange="this.form.submit()" <%= task.completed ? 'checked' : '' %> />
+              </form>
+            </td>
+            <td class="actions">
+              <a href="/edit-task/<%=task.id%>?edit=true" class="btn edit-btn">Edit</a>
+              <a href="/delete-task/<%=task.id%>" class="btn delete-btn">Delete</a>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <div class="add-task-center">
+      <a href="/tasks" class="btn add-task-btn">Add New Task</a>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <a href="/dashboard">Back To Your Space</a>
   </div>
 </body>
+
 </html>

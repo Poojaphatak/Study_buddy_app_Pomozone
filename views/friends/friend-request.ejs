@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -87,6 +87,202 @@
     <% } %>
 
     <a class="back-link" href="/displayFriends">← Back to Friends List</a>
+  </div>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Friend Requests</title>
+  <link rel="stylesheet" href="/css/friends.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('https://i.pinimg.com/736x/68/30/5c/68305cf54f3a4e69bb24654692552e7e.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .navbar-top, .navbar-bottom {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #ffa500;
+      padding: 15px 20px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      position: sticky;
+      z-index: 10;
+    }
+
+    .navbar-top {
+      top: 0;
+    }
+
+    .navbar-bottom {
+      bottom: 0;
+    }
+
+    .content-wrapper {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 20px;
+      overflow-y: auto;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 20px;
+      color: white;
+      box-shadow: 0 0 20px rgba(255, 165, 0, 0.3);
+    }
+
+    h2 {
+      text-align: center;
+      color: #fff;
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+
+    .request-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 15px 20px;
+      margin: 15px 0;
+      border-radius: 10px;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 6px rgba(255, 165, 0, 0.2);
+    }
+
+    .username {
+      font-weight: 600;
+      font-size: 18px;
+      color: #fff;
+      flex: 1;
+    }
+
+    .accept-btn {
+      background: #ffa500;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .accept-btn:hover {
+      background: #ff8800;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #ffae42;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .back-link:hover {
+      color: #ffa500;
+    }
+    /* Bottom Navbar */
+  .bottom-navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    padding: 15px;
+  }
+  
+  .bottom-navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  
+  .bottom-navbar a:hover {
+    text-decoration: underline;
+  }
+
+    @media (max-width: 600px) {
+      .request-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .accept-btn {
+        margin-top: 10px;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay">
+
+    <div class="navbar-top">📨 Friend Requests</div>
+
+    <div class="content-wrapper">
+      <div class="container">
+        <h2>👥 Pending Friend Requests</h2>
+
+        <% if (user.friendRequests.length === 0) { %>
+          <p style="text-align:center; color: #ccc;">No pending requests</p>
+        <% } else { %>
+          <% user.friendRequests.forEach(requester => { %>
+            <div class="request-card">
+              <span class="username"><%= requester.username %></span>
+              <form action="/friends/accept/<%= requester._id %>" method="POST">
+                <button class="accept-btn" type="submit">Accept</button>
+              </form>
+            </div>
+          <% }) %>
+        <% } %>
+
+        <a class="back-link" href="/displayFriends">← Back to Friends List</a>
+      </div>
+    </div>
+
+    <footer class="bottom-navbar">
+    <a href="/dashboard">Back To Your Space</a>
+  </footer>
+
   </div>
 
 </body>

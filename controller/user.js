@@ -36,7 +36,7 @@ exports.postLogin = async (req, res, next) => {
     if (!user) {
     return res.status(401).json({ error: 'Invalid username or password.' });
     }
-    console.log(password);
+   
     const isMatch = await user.comparePassword(password);
 
     if(!isMatch){

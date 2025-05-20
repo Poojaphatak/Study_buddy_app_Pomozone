@@ -1,214 +1,213 @@
-
+/* === BASE SETUP === */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: url('https://i.pinimg.com/736x/68/30/5c/68305cf54f3a4e69bb24654692552e7e.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #f4f1ee;
-    position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url('https://i.pinimg.com/736x/68/30/5c/68305cf54f3a4e69bb24654692552e7e.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #f4f1ee;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.55); /* soft dimming */
-    z-index: -1;
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: -1;
 }
 
 /* === NAVBAR TOP === */
-.navbar-top {
-    background: transparent;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.fixed-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(20, 10, 5, 0.7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  z-index: 1000;
+  backdrop-filter: blur(6px);
 }
 
-.navbar-top .logo {
-    font-size: 28px;
-    font-weight: bold;
-    color: #ff7f32; /* warm orange */
+.fixed-nav .logo {
+  font-size: 26px;
+  font-weight: bold;
+  color: #ff7f32;
 }
 
-.navbar-top .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
+.fixed-nav .menu a {
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
 }
 
-.navbar-top .nav-links a {
-    text-decoration: none;
-    color: #f4f1ee;
-    font-size: 16px;
-    transition: 0.3s ease;
+.fixed-nav .menu a:hover {
+  color: #ffd1a1;
 }
 
-.navbar-top .nav-links a:hover {
-    color: #ffd8b0;
+/* === WRAPPER TO PUSH CONTENT BELOW NAV === */
+.main-wrapper {
+  padding: 100px 20px 100px; /* increased bottom padding from 40px to 100px */
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-/* === MAIN HEADING === */
+
+/* === HEADING === */
 h1 {
-    text-align: center;
-    color: #ffe2c6;
-    margin: 40px 0 20px;
-    font-size: 2.5em;
-    font-weight: bold;
-}
-
-/* === TASK INPUT PANEL === */
-.task-input-container {
-    max-width: 400px;
-    margin: 0 auto;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(8px);
-    padding: 30px;
-    border-radius: 16px;
-    text-align: center;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-}
-
-.task-input-container input[type="text"] {
-    width: 100%;
-    padding: 12px 16px;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    outline: none;
-    background-color: #fff7ef;
-    color: #6F3414;
-}
-
-.task-input-container button {
-    background-color: #b65a20;
-    color: #fff7ef;
-    border: none;
-    padding: 10px 24px;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.task-input-container button:hover {
-    background-color: #8f4319;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #ffe4d0;
 }
 
 /* === TASK TABLE === */
 .task-table {
-    width: 85%;
-    margin: 40px auto;
-    border-collapse: collapse;
-    background: rgba(255, 247, 239, 0.1);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-    backdrop-filter: blur(6px);
-    border-radius: 12px;
-    overflow: hidden;
-    color: #fff4e9;
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 247, 239, 0.1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  overflow: hidden;
+  color: #fff4e9;
+  margin-bottom: 40px;
+}
+
+.task-table th, .task-table td {
+  padding: 14px;
+  text-align: center;
 }
 
 .task-table th {
-    background-color: rgba(111, 52, 20, 0.9);
-    color: #fff7ef;
-    padding: 14px;
-    font-size: 16px;
-}
-
-.task-table td {
-    padding: 14px;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(111, 52, 20, 0.9);
+  font-size: 16px;
 }
 
 .task-table tr:hover {
-    background-color: rgba(255, 255, 255, 0.06);
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.task-table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* === ACTION BUTTONS === */
 .actions {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 .btn {
-    text-decoration: none;
-    padding: 7px 12px;
-    border-radius: 6px;
-    font-size: 13px;
-    cursor: pointer;
-    color: white;
-    border: none;
-    transition: 0.3s;
+  text-decoration: none;
+  padding: 7px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  color: white;
+  border: none;
+  transition: 0.3s;
 }
 
 .edit-btn {
-    background-color: #c07a3f;
+  background-color: #c07a3f;
 }
 
 .delete-btn {
-    background-color: #a4432c;
+  background-color: #a4432c;
 }
 
 .btn:hover {
-    opacity: 0.85;
-}
-
-/* === ADD BUTTON === */
-.add-task-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.add-task-btn {
-    background-color: #d06c29;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.add-task-btn:hover {
-    background-color: #b85a1f;
-}
-
-/* === FOOTER NAV === */
-.navbar-bottom {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: rgba(30, 15, 10, 0.65);
-    padding: 12px 0;
-    display: flex;
-    justify-content: center;
-    backdrop-filter: blur(6px);
-    z-index: 10;
-}
-
-.navbar-bottom a {
-    color: #fff4e5;
-    text-decoration: none;
-    font-size: 14px;
-    transition: 0.3s ease;
-}
-
-.navbar-bottom a:hover {
-    color: #ffd1a1;
+  opacity: 0.85;
 }
 
 /* === CHECKBOX === */
 input[type="checkbox"] {
-    transform: scale(1.4);
-    cursor: pointer;
-    accent-color: #d06c29;
+  transform: scale(1.4);
+  cursor: pointer;
+  accent-color: #d06c29;
+}
+
+/* === ADD TASK BUTTON CENTERED === */
+.add-task-center {
+  text-align: center;
+}
+
+.add-task-btn {
+  background-color: #d06c29;
+  color: #fff;
+  padding: 14px 30px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.add-task-btn:hover {
+  background-color: #b85a1f;
+}
+
+/* === BOTTOM NAV === */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(30, 15, 10, 0.65);
+  padding: 12px 0;
+  display: flex;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  z-index: 10;
+}
+
+.bottom-nav a {
+  color: #fff4e5;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.bottom-nav a:hover {
+  color: #ffd1a1;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .fixed-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+  }
+
+  .fixed-nav .menu {
+    margin-top: 10px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .task-table th, .task-table td {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .add-task-btn {
+    padding: 12px 20px;
+    font-size: 15px;
+  }
 }

@@ -1,39 +1,74 @@
-/* connectFriend.css */
+html, body {
+  height: auto;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fffaf5;
   margin: 0;
-  padding: 20px;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url('https://i.pinimg.com/736x/68/30/5c/68305cf54f3a4e69bb24654692552e7e.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+
+
+.task-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  width: 90%;
+  max-width: 600px;
+  color: white;
+  box-shadow: 0 0 20px rgba(255, 165, 0, 0.3);
 }
 
 h2 {
-  text-align: center;
-  color: #ff7f00;
+  font-size: 28px;
   margin-bottom: 30px;
+  color: white;
 }
 
 ul {
   list-style: none;
   padding: 0;
-  max-width: 600px;
-  margin: auto;
+  margin: 0;
 }
 
 li {
-  background-color: #fff3e0;
-  margin: 10px 0;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
   padding: 15px 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgba(255, 165, 0, 0.15);
+  margin: 10px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  color: #fff;
+  font-weight: 500;
 }
 
-form {
-  margin: 0;
+.username {
+  flex: 1;
+  font-size: 18px;
 }
 
 .send_req_btn {
@@ -51,30 +86,43 @@ form {
   background-color: #e69500;
 }
 
-#req_status {
-  font-size: 14px;
-  color: green;
-  margin-top: 5px;
+.nav-links {
+  margin-top: 25px;
 }
 
-.hide {
-  display: none;
-}
-
-a {
-  display: inline-block;
+.nav-links a {
   text-decoration: none;
-  color: #ff7f00;
+  color: #ffae42;
   font-weight: bold;
-  margin: 20px;
-  text-align: center;
+  margin: 0 15px;
+  font-size: 16px;
 }
 
-a:hover {
-  color: #e67300;
+.nav-links a:hover {
+  color: #ffa500;
+}
+/* Bottom Navbar */
+  .bottom-navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    padding: 15px;
+  }
+  
+  .bottom-navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  
+  .bottom-navbar a:hover {
+    text-decoration: underline;
 }
 
-/* Responsive */
 @media (max-width: 600px) {
   li {
     flex-direction: column;
@@ -86,8 +134,5 @@ a:hover {
     width: 100%;
   }
 
-  a {
-    display: block;
-    margin: 10px auto;
-  }
+ 
 }

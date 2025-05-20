@@ -6,7 +6,8 @@
   <title>Pomozone</title>
   <link rel="stylesheet" href="css/dashboardPage.css">
   <link rel="stylesheet" href="css/pomodoro.css">
-
+  <link rel="stylesheet" href="css/music.css">
+  <script defer src="/frontend/music.js"></script>
 </head>
 <body id ="main_body" >
 
@@ -49,6 +50,47 @@
     </div>
   </div>
 </section>
+ <section class="player-container hide">
+    <div class="container">
+      <h2>Playlist</h2>
+      <ul id="song-list">
+        <li data-index="0" class="active">Lofi</li>
+        <li data-index="1">Rain</li>
+        <li data-index="2">Waves</li>
+        <li data-index="3">Delta</li>
+        <li data-index="4">Forest</li>
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            const songList = document.getElementById('song-list');
+            songList.addEventListener('click', function(e) {
+              if (e.target && e.target.nodeName === "LI") {
+          Array.from(songList.children).forEach(li => li.classList.remove('active'));
+          e.target.classList.add('active');
+              }
+            });
+          });
+        </script>
+      </ul>
+
+      <div id="title">Lofi</div>
+
+
+      <div class="time-container">
+        <span id="current-time">0:00</span>
+        <span id="duration">0:00</span>
+      </div>
+      <input type="range" id="progress" value="0" />
+
+      <div class="controls">
+        <button id="prev">←</button>
+        <button id="play">▶</button>
+        <button id="next">→</button>
+        <button id="loop" class="loop-on">🔁</button>
+      </div>
+
+      <audio id="audio" loop></audio>
+    </div>
+  </section>
 
     <footer>
       <nav class="nav-bottom">
@@ -56,12 +98,13 @@
         <a href="/tasklist/<%=user._id%>">To-Do list</a>
         <a href="/progressPage/<%=user._id%>">Progress-bar</a>
         <a href="#" id="motivation_tag">Motivation!</a>
-        <a href="#">Music</a>
+        <a id="music_btn" href="#">Music</a>
         <a href="/displayFriends">Connect With Friends</a>
       </nav>
     </footer>
   </div>
 <script src="/frontend/theme.js"></script>
+<script src="/frontend/musicPlayer.js"></script>
 <script src="/frontend/logout.js"></script>
   <script src="/frontend/dashboard.js"></script>
   <script src="/frontend/progress.js"></script>
