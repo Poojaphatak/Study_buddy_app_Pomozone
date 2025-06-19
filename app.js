@@ -1,3 +1,4 @@
+require('dotenv').config();
 const http = require('http');
 const User = require('./models/user');
 const express = require('express');
@@ -12,9 +13,9 @@ const session = require('express-session');
 
 
 app.use(session({
-  secret: 'your-secret-key', 
+  secret: process.env.SESSION_SECRET,  
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   cookie: { secure: false } 
 }));
 app.use(express.json()); 
@@ -35,10 +36,11 @@ app.get('/',(req,res,next)=>{
 })
 app.set('view engine','ejs');
 app.set('views', 'views');
+const PORT = process.env.PORT || 3000;
 
 
+mongoose.connect(process.env.MONGO_URI)
 
-mongoose.connect('mongodb+srv://Pooja:k29yKSf1KXih3Ciw@clustertube.eluayo2.mongodb.net/studyapp?retryWrites=true')
 .then(result=>{
-    app.listen(3000)
+    app.listen(PORT);
 });
