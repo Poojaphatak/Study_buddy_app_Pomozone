@@ -5,7 +5,9 @@ const Progress = require('../models/progress');
 exports.getFriendList = async (req, res) => {
     console.log(req.session.UserId);
   const user = await User.findById(req.session.UserId).populate('friends');
-  res.render('friends/friend-list', { friends: user.friends });
+  res.render('friends/friend-list', {
+    user:user,
+     friends: user.friends });
 }
 
 exports.connectFriends = async (req, res) => {
